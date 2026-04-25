@@ -1,3 +1,13 @@
+#!/bin/bash
+
+
+path=$(pwd)
+
+echo
+echo
+echo
+echo "Initiating WordPress Installation."
+
 #Installing wordpress:
 # STEP 1 - Configure Authentication Variables which are used below. You just run the below thing in SSH terminal to save it in .bashrc
 
@@ -43,5 +53,5 @@ rm index.html
 cp $path/wp-config.php /var/www/html/wp-config.php
 
 echo
-echo "WordPress got installed sucessfully on $distro. You can access at: http://$(curl -s ifconfig.me)/"
+echo "WordPress got installed sucessfully. You can access at: http://$(curl -s ifconfig.me)/"
 echo
