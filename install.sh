@@ -18,17 +18,17 @@ export DBRootPassword='4n1m41$4L1f3'
 
 
 # STEP 2 - Install system software - including Web and DB
-sudo apt update
+sudo apt update > /dev/null 2&>1
 # Install Apache, MariaDB, PHP and required extensions
 sudo apt install -y apache2 mariadb-server wget \
-php php-mysql php-cli php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+php php-mysql php-cli php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip > /dev/null 2&>1
 
 
 # STEP 3 - Web and DB Servers Online - and set to startup
-sudo systemctl enable apache2
-sudo systemctl enable mariadb
-sudo systemctl start apache2
-sudo systemctl start mariadb
+sudo systemctl enable apache2 > /dev/null 2&>1
+sudo systemctl enable mariadb > /dev/null 2&>1
+sudo systemctl start apache2 > /dev/null 2&>1
+sudo systemctl start mariadb > /dev/null 2&>1
 
 # STEP 4 - Set Mariadb Root Password
 sudo mysql <<EOF
@@ -42,9 +42,9 @@ EOF
 
 
 # STEP 5 - Install Wordpress
-sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
+sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html > /dev/null 2&>1
 cd /var/www/html
-sudo tar -zxvf latest.tar.gz
+sudo tar -zxvf latest.tar.gz > /dev/null 2&>1
 sudo cp -rvf wordpress/* .
 sudo rm -R wordpress
 sudo rm latest.tar.gz
